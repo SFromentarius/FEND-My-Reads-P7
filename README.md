@@ -4,9 +4,9 @@ We were provided with a starter template. Our job was to add interactivity to th
 
 The "MyReads" app allows us to categorize books by reading status: "currently reading", "want to read" and "read". You can change categories and also get some new books thanks to the search page. 
 
-## Want to see it?
+## Want to explore it?
 
-To see the project :
+To launch the project :
 
 * clone this repository
 * install all project dependencies with `npm install`
