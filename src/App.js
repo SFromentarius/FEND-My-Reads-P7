@@ -5,13 +5,7 @@ import './App.css'
 import MainPage from './MainPage'
 import SearchPage from './SearchPage'
 
-
-/*
-BooksAPI.getAll().then((array)=>{
-    console.log(array)
-})
-*/
-
+//BooksApp component
 class BooksApp extends React.Component {
     state = {
         booksList : []
@@ -40,14 +34,12 @@ class BooksApp extends React.Component {
     render() {
         return (
           <div className="app">
-
             <Route path='/' exact render={()=>(
                 <MainPage
                     books={this.state.booksList}
                     handleChange={this.handleChange}
                 />
             )}/>
-
             <Route path='/search' render={()=>(
                 <SearchPage
                     books={this.state.booksList}
@@ -57,7 +49,7 @@ class BooksApp extends React.Component {
 
           </div>
         )
-      }
+    }
 }
 
 export default BooksApp

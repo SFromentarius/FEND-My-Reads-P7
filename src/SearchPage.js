@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 
-
-
 class SearchPage extends React.Component{
     state={
         searchQuery:'',
@@ -29,8 +27,7 @@ class SearchPage extends React.Component{
             })  
         } else {
            this.setState({filteredBooksList:[]}) 
-        }
-         
+        }  
     }
     
     render(){    
@@ -42,8 +39,11 @@ class SearchPage extends React.Component{
             <div className="search-books-bar">
               <Link className="close-search" to='/'>Close</Link>
               <div className="search-books-input-wrapper">
-                <input value={this.state.searchQuery} type="text" placeholder="Search by title or author" onChange={(e)=>this.updateQuery(e.target.value)}/>
-
+                <input 
+                    value={this.state.searchQuery} 
+                    type="text" 
+                    placeholder="Search by title or author" 
+                    onChange={(e)=>this.updateQuery(e.target.value)}/>
               </div>
             </div>
             <div className="search-books-results">
@@ -52,7 +52,7 @@ class SearchPage extends React.Component{
                 this.state.filteredBooksList.map(searchedBook=>{
                     let shelf='none'
                     
-                   booksList.map(book=>{
+                    booksList.map(book=>{
                        if(book.id === searchedBook.id){
                             shelf=book.shelf
                         }
@@ -65,16 +65,14 @@ class SearchPage extends React.Component{
                                 handleChange={this.props.handleChange}
                                 bookShelf={shelf}
                             />
-                         </li>)
+                    </li>)
                 })    
                 }
-               
                 </ol>
             </div>
           </div>   
         )
-    }
-    
+    }   
 }
 
 export default SearchPage
