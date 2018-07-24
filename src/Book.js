@@ -18,12 +18,12 @@ class Book extends Component{
             authors=''
         }
         
-        let bookShelf
+     /*   let bookShelf
         if(this.props.book.shelf){
             bookShelf=this.props.book.shelf
         } else{
             bookShelf='none'
-        }
+        }*/
         
         return(
                
@@ -32,7 +32,7 @@ class Book extends Component{
                     <div className="book-cover" style={{ width: 128, height: 188, backgroundImage:`url(${imageURL})` }}></div>
                     <div className="book-shelf-changer">
                         <select 
-                            value={bookShelf} 
+                            value={this.props.bookShelf} 
                             onChange={(e)=>this.props.handleChange(this.props.book, e.target.value)}
                         >
                         <option value="move" disabled>Move to...</option>

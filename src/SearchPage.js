@@ -34,7 +34,8 @@ class SearchPage extends React.Component{
     }
     
     render(){    
-        //const booksList = this.props.books
+        //our imported bookList from App.js
+        const booksList = this.props.books
         
         return(
         <div className="search-books">
@@ -48,11 +49,21 @@ class SearchPage extends React.Component{
             <div className="search-books-results">
                 <ol className="books-grid">
                 {
-                this.state.filteredBooksList.map(book=>{
-                    return(<li key={book.id}>
+                this.state.filteredBooksList.map(searchedBook=>{
+                    let shelf='none'
+                    
+                   booksList.map(book=>{
+                       if(book.id === searchedBook.id){
+                            shelf=book.shelf
+                        }
+                    })
+                    
+                    return(<li key={searchedBook.id}>
                             <Book 
-                                book={book}
+                                booksList={booksList}
+                                book={searchedBook}
                                 handleChange={this.props.handleChange}
+                                bookShelf={shelf}
                             />
                          </li>)
                 })    

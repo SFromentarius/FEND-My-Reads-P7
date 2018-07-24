@@ -23,7 +23,7 @@ class BooksApp extends React.Component {
             this.setState({booksList : books})
         })
     }
-    //when the app is ready
+    //when BooksApp is ready
     componentDidMount(){
         this.fetchBooks()
     }
