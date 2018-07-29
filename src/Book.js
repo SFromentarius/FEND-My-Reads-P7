@@ -3,16 +3,18 @@ import React, {Component}  from 'react'
 
 class Book extends Component{    
     render(){
+        const {book} = this.props;
+        
         let imageURL
-        if(this.props.book.imageLinks){
-            imageURL = this.props.book.imageLinks.thumbnail
+        if(book.imageLinks){
+            imageURL = book.imageLinks.thumbnail
         } else{
             imageURL =''
         }
         
         let authors
-        if(this.props.book.authors){
-            authors = this.props.book.authors
+        if(book.authors){
+            authors = book.authors
         } else {
             authors=''
         }

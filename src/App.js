@@ -1,9 +1,9 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-import './App.css'
 import MainPage from './MainPage'
 import SearchPage from './SearchPage'
+import './App.css'
 
 //BooksApp component
 class BooksApp extends React.Component {
@@ -25,8 +25,13 @@ class BooksApp extends React.Component {
     
     // to handle change of book shelves
     handleChange = (book, shelf) => {
-        BooksAPI.update(book, shelf);        
-        this.fetchBooks()
+        BooksAPI.update(book, shelf).then(() => {
+            book.shelf = shelf  //update the local state
+            this.setState(state => ({
+                //if a new book (not on shelf) is added, concat it to this.state.booksList
+                booksList: state.booksList.filter(b => b.id !== book.id).concat(book) 
+              }))     
+        })
     }
 
     render() {

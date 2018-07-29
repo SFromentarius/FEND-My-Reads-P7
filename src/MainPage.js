@@ -2,8 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import BookShelf from './BookShelf'
 
-class MainPage extends React.Component {
-    render() {
+const MainPage = (props) => {
         return (
         <div className="list-books">
             <div className="list-books-title">
@@ -14,20 +13,20 @@ class MainPage extends React.Component {
                          <BookShelf
                             bookShelfTitle='Currently Reading'
                             bookShelfVar='currentlyReading'
-                            books={this.props.books}
-                            handleChange={this.props.handleChange}
+                            books={props.books}
+                            handleChange={props.handleChange}
                         />
                         <BookShelf
                             bookShelfTitle='Want to Read'
                             bookShelfVar='wantToRead'
-                            books={this.props.books}
-                            handleChange={this.props.handleChange}
+                            books={props.books}
+                            handleChange={props.handleChange}
                         />
                         <BookShelf
                             bookShelfTitle='Read'
                             bookShelfVar='read'
-                            books={this.props.books}
-                            handleChange={this.props.handleChange}
+                            books={props.books}
+                            handleChange={props.handleChange}
                         />
                     </div>
                 </div>
@@ -36,7 +35,6 @@ class MainPage extends React.Component {
             </div>
           </div>
         )
-    }
 }
 
 export default MainPage
